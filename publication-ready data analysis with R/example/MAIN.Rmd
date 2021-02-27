@@ -1,0 +1,94 @@
+---
+title: "Publication-Ready Data Analyis with R"
+author: "E. F. Haghish"
+date: "February 28, 2021"
+
+# This is added to move the output to the ./report subdirectory
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "./report") })
+
+output:
+  word_document:
+    toc: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# increase the resolution of the figures to make them publication-ready
+# At least, the DPI should be 300 
+knitr::opts_chunk$set(dpi=600,fig.width=7)
+```
+
+In this document I will demonstrate how to create and organize a computational 
+project and how to produce a dynamic document as you are developing the 
+data analysis. 
+
+Producing such a document within R might appear to be tedious at the first 
+glance. But it is not, if you you make yourself familiar with the Rmarkdown workflow. On the bright side, 
+a data analysis developed in these manners is transparent and easy to 
+comprehend and inspect. The project is also easy to share, improving the practice of 
+collaboration on data analysis. 
+
+The data analysis is organized in several Rmd files. The **`MAIN.Rmd`** file 
+execute them all within a single document. For the following example, I use a data set 
+from the `lavaan` package: <https://lavaan.ugent.be/tutorial/cfa.html>. 
+
+- The analysis is carried out using `R version 3.5.1` on `Mac OSX version 10.14.6` 
+- The following R packages are also required:
+  + `pander v. 0.6.3` 
+  + `lavaan v. 0.6.7.` 
+  + `psych v. 2.0.12`
+  + `semPlot v. 1.1.2`
+
+```{r, include=FALSE}
+# EXAMIN the packages installed in your machine
+libraries = c("pander","lavaan","psych","semPlot")
+for (i in libraries) print(paste(i, "package version is", packageVersion(i)))
+```
+
+
+```{r include=FALSE}
+# load the data and the required packages
+library(lavaan)
+library(pander)
+library(psych)
+library(semPlot)
+df = readRDS("./data/HolzingerSwineford1939.rds")
+```
+
+Results
+=======
+
+```{r eval=TRUE, child = 'code/preparation/01_preparation.Rmd'}
+```
+
+```{r eval=TRUE, child = 'code/descriptive/01_descriptive.Rmd'}
+```
+
+```{r eval=TRUE, child = 'code/analysis/01_analysis.Rmd'}
+```
+
+---
+
+### Last words
+
+Preparing this project took only a few hours of work. I didn't do much of an 
+analysis here, but the template is ready to be used for a real project. 
+Therefore, practicing data analysis in this manner is neither unrealistic nor 
+time-consuming. It's just a matter of habit. 
+
+Once you practice your data analysis with such a discipline, it becomes easy to 
+follow and review your logic for planning and conducting the data analysis. 
+And that is a step forward to reproducible research. As a final word, I want to 
+point out that the majority of the R code and its output was excluded in the 
+MS Word. This is also what happens in the actual scientific papers, i.e. only the 
+absolute-necessary outputs are included in the manuscript. Therefore, 
+a dynamic document like this indeed profides the full picture of the process of 
+data analysis. 
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+---
+title: "Preparation"
+author: "E. F. Haghish"
+date: "2/27/2021"
+output: html_document
+---
+
+Preparation
+-----------
+
+Dynamic text is text that includes scalars obtained from R. Such a text 
+paragraph obtains and interprets values from R on the fly. Here is an example:
+
+```{r echo=FALSE}
+# dropping the subject with missing grade
+dropped = df[is.na(df$grade), ]
+all = nrow(df)
+df = df[!is.na(df$grade), ]
+```
+
+`r all` students from two school participated in the study, of which, `r nrow(dropped)` 
+subject (female, age `r dropped$ageyr`) was excluded from the study because of 
+her unknown grade. Both schools roughly contributed the same number of seven- and 
+eight-grader subjects as you in the table below. 
+
+_Table 1_: _Example of a __dynamic table__ _
+```{r echo=FALSE, results='show'}
+# did the schools contributed equally to the study?
+tab1 = table(df$school, df$grade)
+colnames(tab1) <- c("seven-grade", "eight-grade")
+pander(tab1)
+```
+
+The table above is not necessary, but shows how easy it is to construct a table 
+in R. The actual work is done by the __`pander`__ package. I will construct 
+a couple of more tables in the following sections

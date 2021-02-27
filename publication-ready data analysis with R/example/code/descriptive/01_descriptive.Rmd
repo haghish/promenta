@@ -1,0 +1,19 @@
+---
+title: "Preparation"
+author: "E. F. Haghish"
+date: "2/27/2021"
+output: html_document
+---
+
+
+Descriptive analysis
+--------------------
+
+Whether you should write the entire document here and produce a publication-ready
+Microsoft Word or LaTeX document is up to you. The point is documenting 
+what is carried out on the data and making all decisions trackable. 
+Note that __interpretation__  of statistical analysis includes a number of 
+decisions that a researcher makes. This is why combining interpretations with statistical 
+code provide a clearer picture of what is going on in the data analysis.
+
+
