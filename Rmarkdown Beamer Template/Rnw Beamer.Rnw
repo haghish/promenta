@@ -1,0 +1,33 @@
+\documentclass[english]{beamer}
+\usetheme[promenta]{PROMENTA}
+
+\title{Template for PROMENTA}
+\subtitle{edit the text to create your presentation}
+\author{E. F. Haghish}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\maketitle
+
+
+\begin{frame}
+\frametitle{Slide title}
+\begin{itemize}
+\item Point 1
+\item Point 2
+\item Point 3
+\item Point 4
+\item Point 5
+\item Point 6
+\item Point 7
+\item Point 8
+\item Point 9
+\item Point 10
+\item Point 11
+\item Point 12
+\item Point 13
+\end{itemize}
+
+\end{frame}
+
