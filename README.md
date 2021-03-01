@@ -8,6 +8,8 @@ Lectures
 
 - 01.03.21 __publication-ready data analysis with R__
   + [R Template Example](https://github.com/haghish/promenta/tree/main/publication-ready%20data%20analysis%20with%20R/example)
+  + [Rmarkdown source of the presentation](https://github.com/haghish/promenta/tree/main/publication-ready%20data%20analysis%20with%20R/Presentation)
+  + [PDF slides](https://github.com/haghish/promenta/blob/main/publication-ready%20data%20analysis%20with%20R/Presentation/MAIN.pdf)
   
 Materials
 ---------
