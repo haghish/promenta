@@ -1,0 +1,35 @@
+digraph G {
+    rankdir=UD;
+    fontname="sans-serif";
+    splines="line";
+    penwidth="0.1";
+    edge [comment="Wildcard edge", 
+          fontname="monospace", 
+          fontsize="10", 
+          colorscheme="greys4", 
+          color=2, 
+          fontcolor=3];
+    node [style="filled", 
+          fontsize=13, 
+          fillcolor="1", 
+          colorscheme="greys4", 
+          color="2", 
+          fontcolor="4"];
+    "markdoc" [fontcolor="1", 
+               fontname="monospace", 
+               fontsize="18", 
+               fillcolor="3", 
+               colorscheme="greys4"];
+    "markdoc" -> "docx"  [fontname="monospace"];
+    "docx";
+    "markdoc" -> "pdf"  [fontname="monospace"];
+    "markdoc" -> "tex"  [fontname="monospace"];
+    "markdoc" -> "html"  [fontname="monospace"];
+    "markdoc" -> "odt"  [fontname="monospace"];
+    "markdoc" -> "epub"  [fontname="monospace"];
+    "markdoc" -> "md"  [fontname="monospace"];
+    "SMCL" -> "markdoc";
+    "do-file" -> "markdoc";
+    "do-file";
+    "SMCL";
+}

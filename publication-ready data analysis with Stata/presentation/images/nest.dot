@@ -1,0 +1,42 @@
+digraph G {
+    rankdir=LR;
+    fontname="sans-serif";
+    splines="line";
+    penwidth="0.1";
+    edge [comment="Wildcard edge", 
+          fontname="monospace", 
+          fontsize="10", 
+          colorscheme="greys4", 
+          color=2, 
+          fontcolor=3];
+    node [fontname="monospace", 
+          fontsize=13, 
+          fillcolor="1", 
+          colorscheme="greys4", 
+          color="2", 
+          fontcolor="4", 
+          style="filled"];
+    "MAIN" [fontcolor="1", 
+               fontname="monospace", 
+               fontsize="18", 
+               fillcolor="3", 
+               colorscheme="greys4"];
+    "MAIN" -> "Preparation"  [colorscheme="greys3"];
+    "Preparation" -> "prep_001.R";
+    "Preparation" -> "prep_002.R";
+    "Preparation" -> "prep_003.R";
+    "MAIN" -> "Screening";
+    "Screening" -> "scrn_001.R";
+    "MAIN" -> "Descriptive";
+    "Descriptive" -> "desc_001.R";
+    "MAIN" -> "Analysis";
+    "Analysis" -> "ana_001.R";
+    "Analysis" -> "ana_002.R";
+    "Analysis" -> "ana_003.R";
+    "Analysis" -> "ana_004.R";
+    "MAIN" -> "Report";
+    "Report" -> "rep_001.R";
+    "Report" -> "rep_002.R";
+    "Report" -> "rep_003.R";
+    
+}

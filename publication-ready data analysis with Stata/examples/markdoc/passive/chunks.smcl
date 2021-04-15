@@ -1,0 +1,118 @@
+{smcl}
+{com}{sf}{ul off}{txt}
+{com}. 
+. /***
+> 
+> Text and code chunks
+> =====================
+> 
+> This dofile shows how we can *sequence text and code chunks* in a _single dofile_. 
+> For this purpose, I will do a hypothetical data analysis and go though it step
+> by step. I begin by loading the example data set. 
+> 
+> ***/
+. 
+. sysuse auto, clear
+{txt}(1978 Automobile Data)
+
+{com}. 
+. /***
+> 
+> Descriptive Statistics
+> ----------------------
+> 
+> In the next step I generate some descriptive statistics. I will list the data 
+> and describe and summarize a few variables. 
+> 
+> ***/
+. 
+. list in 1/5
+
+     {txt}{c TLC}{hline 15}{c TT}{hline 7}{c TT}{hline 5}{c TT}{hline 7}{c TT}{hline 10}{c TT}{hline 7}{c TT}{hline 8}{c TT}{hline 8}{c TT}{hline 6}{c TRC}
+  1. {c |} make          {c |} price {c |} mpg {c |} rep78 {c |} headroom {c |} trunk {c |} weight {c |} length {c |} turn {c |}
+     {c |} {res}AMC Concord   {txt}{c |} {res}4,099 {txt}{c |} {res} 22 {txt}{c |} {res}    3 {txt}{c |} {res}     2.5 {txt}{c |} {res}   11 {txt}{c |} {res} 2,930 {txt}{c |} {res}   186 {txt}{c |} {res}  40 {txt}{c |}
+     {c LT}{hline 15}{c BT}{hline 7}{c BT}{hline 2}{c TT}{hline 2}{c BT}{hline 7}{c BT}{hline 10}{c BT}{hline 4}{c TT}{hline 2}{c BT}{hline 8}{c BT}{hline 8}{c BT}{hline 6}{c RT}
+     {c |}         displa~t         {c |}         gear_r~o         {c |}          foreign          {c |}
+     {c |}         {res}     121         {txt}{c |}         {res}    3.58         {txt}{c |}         {res}Domestic          {txt}{c |}
+     {c BLC}{hline 26}{c BT}{hline 26}{c BT}{hline 27}{c BRC}
+
+     {c TLC}{hline 15}{c TT}{hline 7}{c TT}{hline 5}{c TT}{hline 7}{c TT}{hline 10}{c TT}{hline 7}{c TT}{hline 8}{c TT}{hline 8}{c TT}{hline 6}{c TRC}
+  2. {c |} make          {c |} price {c |} mpg {c |} rep78 {c |} headroom {c |} trunk {c |} weight {c |} length {c |} turn {c |}
+     {c |} {res}AMC Pacer     {txt}{c |} {res}4,749 {txt}{c |} {res} 17 {txt}{c |} {res}    3 {txt}{c |} {res}     3.0 {txt}{c |} {res}   11 {txt}{c |} {res} 3,350 {txt}{c |} {res}   173 {txt}{c |} {res}  40 {txt}{c |}
+     {c LT}{hline 15}{c BT}{hline 7}{c BT}{hline 2}{c TT}{hline 2}{c BT}{hline 7}{c BT}{hline 10}{c BT}{hline 4}{c TT}{hline 2}{c BT}{hline 8}{c BT}{hline 8}{c BT}{hline 6}{c RT}
+     {c |}         displa~t         {c |}         gear_r~o         {c |}          foreign          {c |}
+     {c |}         {res}     258         {txt}{c |}         {res}    2.53         {txt}{c |}         {res}Domestic          {txt}{c |}
+     {c BLC}{hline 26}{c BT}{hline 26}{c BT}{hline 27}{c BRC}
+
+     {c TLC}{hline 15}{c TT}{hline 7}{c TT}{hline 5}{c TT}{hline 7}{c TT}{hline 10}{c TT}{hline 7}{c TT}{hline 8}{c TT}{hline 8}{c TT}{hline 6}{c TRC}
+  3. {c |} make          {c |} price {c |} mpg {c |} rep78 {c |} headroom {c |} trunk {c |} weight {c |} length {c |} turn {c |}
+     {c |} {res}AMC Spirit    {txt}{c |} {res}3,799 {txt}{c |} {res} 22 {txt}{c |} {res}    . {txt}{c |} {res}     3.0 {txt}{c |} {res}   12 {txt}{c |} {res} 2,640 {txt}{c |} {res}   168 {txt}{c |} {res}  35 {txt}{c |}
+     {c LT}{hline 15}{c BT}{hline 7}{c BT}{hline 2}{c TT}{hline 2}{c BT}{hline 7}{c BT}{hline 10}{c BT}{hline 4}{c TT}{hline 2}{c BT}{hline 8}{c BT}{hline 8}{c BT}{hline 6}{c RT}
+     {c |}         displa~t         {c |}         gear_r~o         {c |}          foreign          {c |}
+     {c |}         {res}     121         {txt}{c |}         {res}    3.08         {txt}{c |}         {res}Domestic          {txt}{c |}
+     {c BLC}{hline 26}{c BT}{hline 26}{c BT}{hline 27}{c BRC}
+
+     {c TLC}{hline 15}{c TT}{hline 7}{c TT}{hline 5}{c TT}{hline 7}{c TT}{hline 10}{c TT}{hline 7}{c TT}{hline 8}{c TT}{hline 8}{c TT}{hline 6}{c TRC}
+  4. {c |} make          {c |} price {c |} mpg {c |} rep78 {c |} headroom {c |} trunk {c |} weight {c |} length {c |} turn {c |}
+     {c |} {res}Buick Century {txt}{c |} {res}4,816 {txt}{c |} {res} 20 {txt}{c |} {res}    3 {txt}{c |} {res}     4.5 {txt}{c |} {res}   16 {txt}{c |} {res} 3,250 {txt}{c |} {res}   196 {txt}{c |} {res}  40 {txt}{c |}
+     {c LT}{hline 15}{c BT}{hline 7}{c BT}{hline 2}{c TT}{hline 2}{c BT}{hline 7}{c BT}{hline 10}{c BT}{hline 4}{c TT}{hline 2}{c BT}{hline 8}{c BT}{hline 8}{c BT}{hline 6}{c RT}
+     {c |}         displa~t         {c |}         gear_r~o         {c |}          foreign          {c |}
+     {c |}         {res}     196         {txt}{c |}         {res}    2.93         {txt}{c |}         {res}Domestic          {txt}{c |}
+     {c BLC}{hline 26}{c BT}{hline 26}{c BT}{hline 27}{c BRC}
+
+     {c TLC}{hline 15}{c TT}{hline 7}{c TT}{hline 5}{c TT}{hline 7}{c TT}{hline 10}{c TT}{hline 7}{c TT}{hline 8}{c TT}{hline 8}{c TT}{hline 6}{c TRC}
+  5. {c |} make          {c |} price {c |} mpg {c |} rep78 {c |} headroom {c |} trunk {c |} weight {c |} length {c |} turn {c |}
+     {c |} {res}Buick Electra {txt}{c |} {res}7,827 {txt}{c |} {res} 15 {txt}{c |} {res}    4 {txt}{c |} {res}     4.0 {txt}{c |} {res}   20 {txt}{c |} {res} 4,080 {txt}{c |} {res}   222 {txt}{c |} {res}  43 {txt}{c |}
+     {c LT}{hline 15}{c BT}{hline 7}{c BT}{hline 2}{c TT}{hline 2}{c BT}{hline 7}{c BT}{hline 10}{c BT}{hline 4}{c TT}{hline 2}{c BT}{hline 8}{c BT}{hline 8}{c BT}{hline 6}{c RT}
+     {c |}         displa~t         {c |}         gear_r~o         {c |}          foreign          {c |}
+     {c |}         {res}     350         {txt}{c |}         {res}    2.41         {txt}{c |}         {res}Domestic          {txt}{c |}
+     {c BLC}{hline 26}{c BT}{hline 26}{c BT}{hline 27}{c BRC}
+
+{com}. describe price
+
+              {txt}storage   display    value
+variable name   type    format     label      variable label
+{hline}
+{p 0 48}{res}{bind:price          }{txt}{bind: int     }{bind:{txt}%8.0gc    }{space 1}{bind:         }{bind:  }{res}{res}Price{p_end}
+{txt}
+{com}. summarize price
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 7}price {c |}{res}         74    6165.257    2949.496       3291      15906
+{txt}
+{com}. 
+. 
+. /***
+> 
+> Regression Analysis
+> -------------------
+> 
+> I will fit a regression analysis for price and mpg, using [blue]price[#] as the
+> dependent variable and the [pink]mpg[#] as predictor. note that __Additional
+> Markup Codes__ can be used with Markdown codes in _Weaver_ and _Ketchup_ 
+> packages.
+> 
+> ***/
+. 
+. regress price mpg
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        74
+{txt}{hline 13}{c +}{hline 34}   F(1, 72)        = {res}    20.26
+{txt}       Model {c |} {res}  139449474         1   139449474   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res}  495615923        72  6883554.48   {txt}R-squared       ={res}    0.2196
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.2087
+{txt}       Total {c |} {res}  635065396        73  8699525.97   {txt}Root MSE        =   {res} 2623.7
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       price{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}mpg {c |}{col 14}{res}{space 2}-238.8943{col 26}{space 2} 53.07669{col 37}{space 1}   -4.50{col 46}{space 3}0.000{col 54}{space 4}-344.7008{col 67}{space 3}-133.0879
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 11253.06{col 26}{space 2} 1170.813{col 37}{space 1}    9.61{col 46}{space 3}0.000{col 54}{space 4} 8919.088{col 67}{space 3} 13587.03
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. qui log c
+{smcl}
+{com}{sf}{ul off}
