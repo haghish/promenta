@@ -330,12 +330,8 @@ Notes: data documentation
 --- 
 
 
-![Data documentation in R](./images/rdoc_mixed.png)
+![Nesting analysis files](./images/rdoc_mixed.png)
 
---- 
-
-
-![Data documentation in Stata](./images/datadoc.png)
 
 
 Working with multiple statistical software 
