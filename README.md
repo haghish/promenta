@@ -12,7 +12,7 @@ Lectures
   + [PDF slides](https://github.com/haghish/promenta/blob/main/publication-ready%20data%20analysis%20with%20R/Presentation/MAIN.pdf)
 - 15.04.21 __publication-ready data analysis with Stata__
   + [PDF Slides of the presentation]()
-  + PDF manuscripts for further readings ([can also be downloaded from here](https://github.com/haghish/promenta/tree/main/publication-ready%20data%20analysis%20with%20Stata/manuscripts)
+  + PDF manuscripts for further readings ([can also be downloaded from here](https://github.com/haghish/promenta/tree/main/publication-ready%20data%20analysis%20with%20Stata/manuscripts))
     + [Markdoc: Literate Programming in Stata](https://journals.sagepub.com/doi/abs/10.1177/1536867X1601600409)
     + [Software documentation with markdoc 5.0](https://journals.sagepub.com/doi/abs/10.1177/1536867X20931000)
     + [Developing, maintaining, and hosting Stata statistical software on GitHub](https://journals.sagepub.com/doi/abs/10.1177/1536867X20976323)
