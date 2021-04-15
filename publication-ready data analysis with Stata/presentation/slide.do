@@ -14,6 +14,10 @@
 
 -----
 
+![Relevant literature](images/promenta.png)
+
+-----
+
 ![Relevant literature](images/books.png)
 
 
@@ -1349,8 +1353,7 @@ Example(s)
         . example command
 
     second explanation
-        . example command
-***/        
+        . example command      
 ~~~
 
 -------
