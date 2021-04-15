@@ -360,6 +360,7 @@ rcall
 
 - __rcall__ is hosted on GitHub only, not SSC
 
+
 ~~~
 net install github, from("https://haghish.github.io/github/")
 github install haghish/rcall, stable
@@ -445,11 +446,27 @@ Literate programming
 `markdoc` package
 ===================
 
+Note about __markdoc__
+----------------------
+
+__MarkDoc__ was developed for Stata in 2012. It comes in two versions, 
+full-version (required additional third-party software) and 
+mini-version (completely written within Stata). 
+
+> If you use __secure servers__ or __restricted machines__, use the 
+mini-version 
+
+> The mini-version can be executed by adding __`mini`__ option or 
+by using the __mini__ command. 
+
+`markdoc` package
+===================
+
 - `markdoc` is a general purpose literate programming software
 - developed particularly for Stata
 - `markdoc` is versatile:
     + generate publication-ready analysis report in various document formats (PDF, Docx, ODT, HTML, LaTeX, etc.)
-	+ includes a syntax highlighter
+	  + includes a syntax highlighter
     + generate dynamic presentation slides
     + generate dynamic Stata help files in STHLP format or create a package vignette
 - Analysis documentation/interpretation is written within _do-files_, as usual
@@ -530,6 +547,7 @@ Who can use `markdoc`?
     + [`weaver`](https://github.com/haghish/weaver)
     + [`datadoc`](https://github.com/haghish/datadoc)
     + [`md2smcl`](https://github.com/haghish/markdown)
+    + [`statax`](https://github.com/haghish/statax)
 
 - The `github` command  can install `markdoc` and its dependencies. You can install the `github` command as follows:
 
@@ -544,7 +562,7 @@ Who can use `markdoc`?
 - For example, to install or update `markdoc` and its dependencies type the following command:
 
 ~~~~
-. github install haghish/markdoc
+. github install haghish/markdoc, stable
 ~~~~
 
 ---
@@ -597,6 +615,8 @@ Third-party software installation (optional)
 
 The `markdoc` command includes the `install` option which downloads Pandoc and wkhtmltopdf software automatically, if they are not already installed or cannot be accessed by `markdoc`. As shown in the example below, adding the `install` option will avoid any error regarding the required software and installs them on the fly:
 
+\scriptsize
+
 ~~~
 qui log using example.smcl, replace
 display "If necessary, install the required software on the fly"
@@ -633,16 +653,15 @@ Workflow
 ======================
 
 - `markdoc` has 2 separate modes
-
-    + Passive mode (allows real-time documentation)
-	    + Takes a log-file / script file (.ado, .mata, etc.)
-	    + It does __NOT__ evaluate the code nor reproduce the analysis
-	    + It produces a document very fast
-	+ Active mode (for testing the whole code in a fresh environment)
-	    + Takes a do-file
-	    + Executes the analysis
-	    + Evaluates its reproducibility
-	    + It is much slower than the passive mode, because it repeats the analysis
+- Passive mode (allows real-time documentation)
+    + Takes a log-file / script file (.ado, .mata, etc.)
+    + It does __NOT__ evaluate the code nor reproduce the analysis
+    + It produces a document very fast
+- Active mode (for testing the whole code in a fresh environment)
+    + Takes a do-file
+    + Executes the analysis
+    + Evaluates its reproducibility
+    + It is much slower than the passive mode, because it repeats the analysis
 
 ---
 
@@ -722,6 +741,8 @@ file *example2.do* and execute it in Stata:
 
 But if we examine it with `markdoc`, we get the following error. `markdoc` says it can't find the data! 
 
+\scriptsize
+
 ~~~
 . markdoc example2.do, mini export(pdf) 
 
@@ -755,6 +776,8 @@ Example
 Create a do file with this code and generate a PDF document with syntax highlighter. 
 name the example *example3.do*. let's also use a few of the `markdoc` options to create the title of the document.
 
+\scriptsize
+
 ~~~
 . quietly log using example, replace smcl
 
@@ -786,8 +809,8 @@ Markup Languages
 
 - `markdoc` supports 
     + LaTeX (requires third-party software)
-	+ HTML
-	+ Markdown
+    + HTML
+    + Markdown
 
 - In this lecture we will focus on Markdown, which is the simplest. The following links, from its developer's site, can provide a good background about Markdown:
 	- <https://daringfireball.net/projects/markdown/>
@@ -796,10 +819,10 @@ Markup Languages
 
 - Markdown is 
     + minimalistic and clean 
-	+ simple to read and write
-	+ helps to focus on the content
-	+ can be converted to many formats
-	+ it has become the standard documentation markup language on coding sites as well as statistical software
+    + simple to read and write
+    + helps to focus on the content
+    + can be converted to many formats
+    + it has become the standard documentation markup language on coding sites as well as statistical software
 
 ---
 
@@ -850,6 +873,8 @@ Passive markers
 Hiding Stata commands
 =====================
 
+\scriptsize
+
 ~~~~
 // --------------- Beginning additional_hide.do ---------------
 
@@ -881,6 +906,8 @@ Executing the `markdoc` command will results in the following output:
 Hiding Stata output
 ===================
 
+\scriptsize
+
 ~~~~
 // --------------- Beginning additional_hide2.do ---------------
 
@@ -888,6 +915,7 @@ Hiding Stata output
 
 Hiding Stata output
 ---------------------
+
 
 ***/
 
@@ -907,6 +935,8 @@ Hiding a part of a do-file
 ==========================
 
 - MarkDoc also allows hiding a section of the do-file, without influencing the code execution
+
+\scriptsize
 
 ~~~~
 // --------------- Beginning additional_hide3.do ---------------
@@ -949,6 +979,8 @@ Example
 
 ---------
 
+\scriptsize
+
 ~~~~
 Intro.txt
 ------------
@@ -985,7 +1017,7 @@ The
 
 ---
 
-
+\scriptsize
 
 ~~~~
 // --------------- Beginning additional_import.do ---------------
@@ -1047,6 +1079,8 @@ markersexample.png
 Example
 ==============
 
+
+\scriptsize
 
 ~~~{js}
 local a = 1
@@ -1142,6 +1176,8 @@ Syntax of the `txt` command
 
 where the `display_directive` can be:
 
+\scriptsize
+
 ~~~
 "double-quoted string"
 `"compound double-quoted string"'
@@ -1174,6 +1210,8 @@ The syntax of the command is:
 
 where the __`*`__ represents a display directive, which is:
 
+\scriptsize
+
 ~~~   
  "double-quoted string"
  `"compound double-quoted string"'
@@ -1187,6 +1225,8 @@ where the __`*`__ represents a display directive, which is:
 Examples
 =============
 
+\scriptsize
+
 - creating a simple 2x3 table with string and numbers
 
 ~~~
@@ -1194,6 +1234,8 @@ tbl ("Column 1", "Column 2", "Column 3" \ 10, 100, 1000 )
 ~~~
 
 - creating a table that includes scalars and aligns the columns to left, center, and right respectively
+
+
 
 ~~~
 tbl ({l}"Left", {c}"Centered", {r}"Right" \ c(os),  c(machine_type), c(username))
@@ -1285,8 +1327,9 @@ Example
 
 ----
 
+\scriptsize
+
 ~~~
-/***
 Title
 ======
 
